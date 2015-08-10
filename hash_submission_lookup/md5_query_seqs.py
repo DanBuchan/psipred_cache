@@ -44,8 +44,10 @@ test_seq = 'MLELLPTAVEGVSQAQITGRPEWIWLALGTALMGLGTLYFLVKGMGVSDPDAKKFYAITT' + \
            'AIFGEAEAPEPSAGDGAAATSD'
 test_hash = m.update(test_seq.encode('utf-8'))
 
-with open('/cs/research/bioinf/home1/green/dbuchan/Projects/psipred_cache/'
-          'hash_submission_lookup/string.csv', 'rb') as istream, \
+# with open('/cs/research/bioinf/home1/green/dbuchan/Projects/psipred_cache/'
+#           'hash_submission_lookup/string.csv', 'rb') as istream, \
+#             open("err.txt", 'wb') as err, MyFilter(istream, err) as fd:
+with open('/Users/dbuchan/Projects/string.csv', 'rb') as istream, \
             open("err.txt", 'wb') as err, MyFilter(istream, err) as fd:
     strings = csv.reader(fd, delimiter='\t', quotechar='"')
     for row in strings:
@@ -53,6 +55,7 @@ with open('/cs/research/bioinf/home1/green/dbuchan/Projects/psipred_cache/'
             seq = "".join(row[2].split())
             m.update(seq.encode('utf-8'))
             if m.hexdigest != test_hash:
-                print(m.hexdigest())
+                print(">" + m.hexdigest())
+                print(seq)
         except:
             pass
