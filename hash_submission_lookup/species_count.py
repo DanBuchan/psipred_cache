@@ -8,9 +8,10 @@ taxa_re = "OX\s+NCBI_TaxID=(\d+)\D+"
 uniprot_uri = "http://www.uniprot.org/uniprot/"  # A0A024RDF4.txt
 
 totals = {}
-
+i = 0
 with open('hash_matches.txt') as infile:
     for l in infile:
+        i++
         seq_id = ''
         count = 0
         for match in re.findall(id_re, l):
@@ -26,6 +27,8 @@ with open('hash_matches.txt') as infile:
                         totals[match3] += match2
                     else:
                         totals[match3] = match2
+        if i % 1000 == 0:
+            print(str(i))
 
 for taxa_id in totals:
     print(taxa_id+","+totals[taxa_id])
