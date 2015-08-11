@@ -51,11 +51,13 @@ with open('/Users/dbuchan/Projects/string.csv', 'rb') as istream, \
             open("err.txt", 'wb') as err, MyFilter(istream, err) as fd:
     strings = csv.reader(fd, delimiter='\t', quotechar='"')
     for row in strings:
+        m = hashlib.md5()
         try:
             seq = "".join(row[2].split())
             m.update(seq.encode('utf-8'))
             if m.hexdigest != test_hash:
-                print(">" + m.hexdigest())
-                print(seq)
+                # print(">" + m.hexdigest())
+                # print(seq)
+                print(m.hexdigest())
         except:
             pass
