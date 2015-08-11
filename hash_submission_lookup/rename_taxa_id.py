@@ -17,7 +17,7 @@ with open('test.csv') as infile:
             data = xmltodict.parse(r.text)
             # pp.pprint(data)
             scientific_name = data["TaxaSet"]["Taxon"]["ScientificName"]
-            scientific_name += ","+row[1]
+            scientific_name += ","+row[0]+","+row[1]
             print(scientific_name)
         except:
             print("Nope" + row[0])
