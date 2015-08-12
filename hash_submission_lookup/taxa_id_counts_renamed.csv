@@ -375,7 +375,7 @@ Bacteria,Acinetobacter baumannii NCGM 237,1401639,4
 Eukaryota,Cytisus scoparius,3835,2
 Bacteria,Spiroplasma melliferum,2134,1
 Bacteria,Vibrio harveyi 1DA3,673519,2
-Bacteria,Enterococcus faecium 1,230,933,565656,1
+Bacteria,Enterococcus faecium 1:230:933,565656,1
 Eukaryota,Acipenser naccarii,42330,2
 Eukaryota,Operophtera brumata,104452,1
 Bacteria,Staphylococcus aureus subsp. aureus JH1,359787,7
@@ -1127,7 +1127,7 @@ Bacteria,Bacillus lehensis G1,1246626,14
 Archaea,Candidatus Korarchaeum cryptofilum OPF8,374847,3
 Bacteria,Bacillus megaterium WSH-002,1006007,2
 Bacteria,Acidiphilium multivorum AIU301,926570,2
-Eukaryota,Gaussia princeps (T. Scott, 1894),148582,3
+Eukaryota,Gaussia princeps (T. Scott: 1894),148582,3
 Bacteria,Paraglaciecola agarilytica NO2,1125747,1
 Bacteria,Komagataeibacter xylinus E25,1296990,2
 Eukaryota,Thielavia terrestris NRRL 8126,578455,11
@@ -1643,7 +1643,7 @@ Bacteria,Zobellia galactanivorans,63186,1
 Viruses,Cucumber mosaic virus,12305,2
 Eukaryota,Astragalus membranaceus,649199,2
 Eukaryota,Schizosaccharomyces kambucha,204045,2
-Viruses,Marburg virus - Musoke, Kenya, 1980,33727,9
+Viruses,Marburg virus - Musoke: Kenya: 1980,33727,9
 Viruses,Influenza A virus (A/northern shoverl/Mississippi/11OS145/2011(H7N9)),1267730,2
 Bacteria,Deinococcus peraridilitoris DSM 19664,937777,1
 Viruses,Pseudocowpox virus,129726,36
@@ -2095,7 +2095,7 @@ Archaea,Thermococcus kodakarensis KOD1,69014,67
 Bacteria,Haemophilus influenzae 22.4-21,375063,1
 Eukaryota,Piromyces equi,99929,3
 Bacteria,Polaromonas sp. JS666,296591,4
-Viruses,Ebola virus - Mayinga, Zaire, 1976,128952,97
+Viruses,Ebola virus - Mayinga: Zaire: 1976,128952,97
 Viruses,Lactococcus phage phi31,46654,1
 Bacteria,Streptococcus uberis 0140J,218495,1
 Viruses,Tomato leaf curl New Delhi virus-India [India/New Delhi/Chilli/2009],1000683,2
@@ -2948,7 +2948,7 @@ Eukaryota,Cairina moschata,8855,2
 Viruses,Agrotis ipsilon multiple nucleopolyhedrovirus,208013,1
 Eukaryota,Choristoneura fumiferana,7141,8
 Viruses,Piscine reovirus,1157337,3
-Viruses,Ravn virus - Ravn, Kenya, 1987,378809,2
+Viruses,Ravn virus - Ravn: Kenya: 1987,378809,2
 Viruses,Lake Victoria marburgvirus - Angola2005,378830,2
 Eukaryota,Mus platythrix,10101,1
 Bacteria,Rhizobium lupini HPC(L),1229491,1
@@ -3399,7 +3399,7 @@ Viruses,Neodiprion abietis NPV,204507,1
 Eukaryota,Elaeagnus umbellata,43233,1
 Eukaryota,Protobothrops jerdonii,242841,4
 Bacteria,Streptococcus suis 05ZYH33,391295,4
-Viruses,Human immunodeficiency virus type 2 (ISOLATE D205,7),11716,2
+Viruses,Human immunodeficiency virus type 2 (ISOLATE D2057),11716,2
 Viruses,Vaccinia virus Ankara,126794,28
 Bacteria,Candidatus Desulfamplus magnetomortis,1246637,5
 Bacteria,Acinetobacter baumannii AB307-0294,557600,7
@@ -6908,7 +6908,7 @@ Eukaryota,Eucalyptus globulus,34317,14
 Viruses,Human T-cell lymphotrophic virus type 1 (isolate MT-2),11928,1
 Bacteria,Salmonella enterica subsp. enterica serovar Typhimurium str. SL1344,216597,23
 Bacteria,Treponema pallidum subsp. pallidum str. Nichols,243276,40
-Bacteria,Salmonella enterica subsp. enterica serovar 4,[5],12:i:- str. 08-1736,866913,13
+Bacteria,Salmonella enterica subsp. enterica serovar 4:[5]:12:i:- str. 08-1736,866913,13
 Eukaryota,Squilla empusa,84350,1
 Bacteria,Neisseria meningitidis serogroup B,491,2
 Bacteria,Sphaerobacter thermophilus DSM 20745,479434,19
@@ -7538,7 +7538,7 @@ Eukaryota,Ageratina adenophora,176616,1
 Bacteria,Campylobacter jejuni subsp. jejuni 260.94,360108,6
 Bacteria,Salmonella enterica subsp. enterica serovar Cerro,340188,1
 Eukaryota,Chlorella pyrenoidosa,3078,2
-Bacteria,Salmonella enterica subsp. arizonae serovar 62:z4,z23:-,41514,42
+Bacteria,Salmonella enterica subsp. arizonae serovar 62:z4:z23:-,41514,42
 Viruses,Pepino mosaic virus,112229,2
 Bacteria,Candidatus Nitrospira defluvii,330214,21
 Eukaryota,Phyllodiscus semoni,163701,5
