@@ -1,6 +1,7 @@
 import pprint
 import requests
 import re
+import sys
 
 id_re = ">UniRef100_(.+?)\s"
 count_re = "COUNT=(.+)"
@@ -11,7 +12,7 @@ totals = {}
 i = 0
 with open('hash_matches.txt') as infile:
     for l in infile:
-        i++
+        i += 1
         seq_id = ''
         count = 0
         for match in re.findall(id_re, l):
@@ -24,11 +25,11 @@ with open('hash_matches.txt') as infile:
                     print("Missed " + seq_id)
                 for match3 in re.findall(taxa_re, r.text):
                     if match3 in totals:
-                        totals[match3] += match2
+                        totals[match3] += count
                     else:
-                        totals[match3] = match2
+                        totals[match3] = count
         if i % 1000 == 0:
-            print(str(i))
+            print(str(i), file=sys.stderr)
 
 for taxa_id in totals:
-    print(taxa_id+","+totals[taxa_id])
+    print(taxa_id+","+str(totals[taxa_id]))
