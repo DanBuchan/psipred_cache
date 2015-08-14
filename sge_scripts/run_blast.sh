@@ -7,9 +7,10 @@
 blastdb="/tmp/test_db.fasta"
 if [ -f "$blastdb" ]
 then
-  echo "found"
+  echo "Blast DB present"
 else
-  echo "not found"
+  echo "Copying blast db"
+  cp /Users/dbuchan/Downloads/test_db.* /tmp/
 fi
 
 #Here we get the
@@ -22,12 +23,17 @@ SEQ=$(awk "NR==$SEQ_LOC  {print;exit}" $FASTA_PROTEOMES)
 
 #write HEADER AND SEQ TO A /tmp/temp file
 MATCH=$(echo $HEADER | perl -ne 'while(/>.+\|(.+?)\|.+\s/g){print "$1\n";}')
-FILENAME="$MATCH.fasta"
+FILENAME="/tmp/$MATCH.fasta"
+OUT="/tmp/$MATCH.bls"
+PSSM="/tmp/$MATCH.pssm"
 CONTENTS="$HEADER\n$SEQ"
 echo $CONTENTS >> $FILENAME
 
 #run blast
 echo "RUNNING A BLAST"
+/Users/dbuchan/Downloads/ncbi-blast-2.2.31+/bin/psiblast -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20
 
 #delete our temp file
+mv $PSSM ./
+mv $OUT ./
 rm $FILENAME
