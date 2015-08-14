@@ -1,0 +1,44 @@
+taxa_id,clade,organism,protein_count,Genus,Species,ProteomeID,Description,ReleaseDate,ProteinCount,Percentage
+11676,Viruses,Human immunodeficiency virus 1,664,NA,NA,NA,NA,NA,9,73.7777777778
+559292,Eukaryota,Saccharomyces cerevisiae S288c,10084,Saccharomyces,cerevisiae,UP000002311,Saccharomyces cerevisiae (strain ATCC 204508 / S288c) (Baker's yeast),2015-06-07,6721,1.5003719685
+272944,Bacteria,Rickettsia conorii str. Malish 7,1820,Rickettsia,conorii,UP000000816,Rickettsia conorii (strain ATCC VR-613 / Malish 7),2015-04-13,1372,1.3265306122
+9606,Eukaryota,Homo sapiens,56809,Homo,sapiens,UP000005640,Homo sapiens (Human),2015-06-07,69693,0.8151320793
+83333,Bacteria,Escherichia coli K-12,3420,NA,NA,NA,NA,NA,4305,0.7944250871
+284812,Eukaryota,Schizosaccharomyces pombe 972h-,2993,Schizosaccharomyces,pombe,UP000002485,Schizosaccharomyces pombe (strain 972 / ATCC 24843) (Fission yeast),2015-06-07,5121,0.5844561609
+64091,Archaea,Halobacterium sp. NRC-1,1299,Halobacterium,salinarum,UP000000554,Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium),2015-04-13,2426,0.5354492993
+10090,Eukaryota,Mus musculus,11692,Mus,musculus,UP000000589,Mus musculus (Mouse),2015-06-07,46452,0.2517006803
+3702,Eukaryota,Arabidopsis thaliana,7614,Arabidopsis,thaliana,UP000006548,Arabidopsis thaliana (Mouse-ear cress),2015-06-07,31520,0.2415609137
+36329,Eukaryota,Plasmodium falciparum 3D7,1092,Plasmodium,falciparum,UP000001450,Plasmodium falciparum (isolate 3D7),2015-04-13,5353,0.2039977583
+224308,Bacteria,Bacillus subtilis subsp. subtilis str. 168,813,Bacillus,subtilis,UP000001570,Bacillus subtilis (strain 168),2015-05-12,4197,0.1937097927
+933093,Bacteria,Legionella pneumophila subsp. pneumophila ATCC 43290,498,NA,NA,NA,NA,NA,2933,0.1697920218
+7227,Eukaryota,Drosophila melanogaster,3523,Drosophila,melanogaster,UP000000803,Drosophila melanogaster (Fruit fly),2015-04-13,22018,0.1600054501
+83331,Bacteria,Mycobacterium tuberculosis CDC1551,597,NA,NA,NA,NA,NA,4200,0.1421428571
+10116,Eukaryota,Rattus norvegicus,4466,Rattus,norvegicus,UP000002494,Rattus norvegicus (Rat),2015-06-07,32983,0.1354030864
+271848,Bacteria,Burkholderia thailandensis E264,657,Burkholderia,thailandensis,UP000001930,Burkholderia thailandensis (strain E264 / ATCC 700388 / DSM 13276 / CIP 106301),2015-04-13,5561,0.1181442187
+208964,Bacteria,Pseudomonas aeruginosa PAO1,621,Pseudomonas,aeruginosa,UP000002438,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228),2015-04-13,5563,0.1116304152
+1280,Bacteria,Staphylococcus aureus,283,NA,NA,NA,NA,NA,2703,0.1046984832
+243277,Bacteria,Vibrio cholerae O1 biovar El Tor str. N16961,344,NA,NA,NA,NA,NA,3784,0.0909090909
+9913,Eukaryota,Bos taurus,2110,Bos,taurus,UP000009136,Bos taurus (Bovine),2015-05-10,23868,0.0884028825
+185431,Eukaryota,Trypanosoma brucei brucei TREU927,759,NA,NA,NA,NA,NA,8587,0.0883894259
+287,Bacteria,Pseudomonas aeruginosa,553,NA,NA,NA,NA,NA,6463,0.0855639796
+199310,Bacteria,Escherichia coli CFT073,356,NA,NA,NA,NA,NA,4305,0.0826945412
+6239,Eukaryota,Caenorhabditis elegans,2026,Caenorhabditis,elegans,UP000001940,Caenorhabditis elegans,2015-06-07,26096,0.0776364194
+99287,Bacteria,Salmonella enterica subsp. enterica serovar Typhimurium str. LT2,313,Salmonella,typhimurium,UP000001014,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720),2015-06-03,4533,0.0690491948
+9031,Eukaryota,Gallus gallus,1048,Gallus,gallus,UP000000539,Gallus gallus (Chicken),2015-05-10,17657,0.059353231
+284590,Eukaryota,Kluyveromyces lactis NRRL Y-1140,293,Kluyveromyces,lactis,UP000000598,Kluyveromyces lactis (strain ATCC 8585 / CBS 2359 / DSM 70799 / NBRC 1267 / NRRL Y-1140 / WM37) (Yeast) (Candida sphaerica),2015-04-13,5071,0.0577795307
+759272,Eukaryota,Chaetomium thermophilum var. thermophilum DSM 1495,414,NA,NA,NA,NA,NA,7182,0.0576441103
+3055,Eukaryota,Chlamydomonas reinhardtii,745,Chlamydomonas,reinhardtii,UP000006906,Chlamydomonas reinhardtii (Chlamydomonas smithii),2015-05-15,14337,0.0519634512
+5811,Eukaryota,Toxoplasma gondii,348,NA,NA,NA,NA,NA,8404,0.0414088529
+5664,Eukaryota,Leishmania major,327,NA,NA,NA,NA,NA,8038,0.0406817616
+7955,Eukaryota,Danio rerio,1204,Danio,rerio,UP000000437,Danio rerio (Zebrafish) (Brachydanio rerio),2015-06-07,42838,0.0281058873
+9986,Eukaryota,Oryctolagus cuniculus,478,Oryctolagus,cuniculus,UP000001811,Oryctolagus cuniculus (Rabbit),2015-04-13,21175,0.0225737898
+1773,Bacteria,Mycobacterium tuberculosis,314,NA,NA,NA,NA,NA,14337,0.0219013741
+7091,Eukaryota,Bombyx mori,316,Bombyx,mori,UP000005204,Bombyx mori (Silk moth),2015-05-15,14767,0.0213990655
+9823,Eukaryota,Sus scrofa,549,Sus,scrofa,UP000008227,Sus scrofa (Pig),2015-05-10,26086,0.0210457717
+353153,Eukaryota,Trypanosoma cruzi strain CL Brener,356,NA,NA,NA,NA,NA,19242,0.0185011953
+39947,Eukaryota,Oryza sativa Japonica Group,1074,Oryza,sativa,UP000000763,Oryza sativa subsp. japonica (Rice),2015-05-15,63007,0.0170457251
+9598,Eukaryota,Pan troglodytes,298,Pan,troglodytes,UP000002277,Pan troglodytes (Chimpanzee),2015-04-13,20132,0.0148023048
+4081,Eukaryota,Solanum lycopersicum,397,Solanum,lycopersicum,UP000004994,Solanum lycopersicum (Tomato) (Lycopersicon esculentum),2015-06-07,34825,0.0113998564
+4577,Eukaryota,Zea mays,488,Zea,mays,UP000007305,Zea mays (Maize),2015-05-15,58493,0.0083428786
+4565,Eukaryota,Triticum aestivum,485,Triticum,aestivum,UP000019116,Triticum aestivum (Wheat),2015-06-03,94854,0.0051131212
+3847,Eukaryota,Glycine max,325,Glycine,max,UP000008827,Glycine max (Soybean) (Glycine hispida),2015-05-15,64675,0.0050251256

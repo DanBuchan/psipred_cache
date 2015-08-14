@@ -11,3 +11,12 @@ sorted_totals<-clade_totals[order(clade_totals$protein_count, decreasing=TRUE),]
 ggplot(sorted_totals, aes(x=reorder(clade, -protein_count), y=protein_count, fill=clade)) + geom_bar(stat="identity") + xlab("Clade") + ylab("Total Proteins") + scale_y_continuous(labels = comma)
 
 ggplot(sorted_counts[1:50,], aes(x=reorder(organism, -protein_count), y=protein_count, fill=organism)) + geom_bar(stat="identity") + xlab("Organism") + ylab("Total Proteins") + scale_y_continuous(labels = comma) + theme(legend.position="none", axis.text.x = element_text(angle = 75, hjust = 1))
+
+# write.table(sorted_counts[1:50,], file="/Users/dbuchan/Code/psipred_cache/hash_submission_lookup/common_organisms.csv",sep=",", row.names=FALSE, quote=FALSE)
+
+all_genomes <- read.csv(file="/Users/dbuchan/Code/psipred_cache/taxonomy_investigation/uniprot_proteome_info.txt", header=TRUE,  strip.white = TRUE, sep="\t",na.strings= c("999", "NA", " ", ""))
+
+tmp<-merge(sorted_counts[1:50,], all_genomes, by.x="taxa_id", by.y="taxaID", all.x=TRUE)
+
+write.table(tmp, file="/Users/dbuchan/Code/psipred_cache/hash_submission_lookup/common_organisms.csv",sep=",", row.names=FALSE, quote=FALSE)
+
