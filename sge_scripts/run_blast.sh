@@ -6,15 +6,26 @@
 #
 #
 # LOCAL CONFIG
-#
+# This config for testing
+# TMP="tmp/psi_cache"
+# FASTA_PROTEOMES="/Users/dbuchan/Code/psipred_cache/get_proteomes/cache_proteomes_single_lines.fasta"
+# BLAST_EXE="/Users/dbuchan/Downloads/ncbi-blast-2.2.31+/bin/psiblast"
+# FINAL="./"
+# blastdb_name="test_db"
+# blastdb_location="/Users/dbuchan/Downloads/"
+# blastdb="/$TMP/$blastdb_name.fasta"
+# SGE_TASK_ID=1
+
+# This config for morecambe/sge
 TMP="tmp/psi_cache"
-FASTA_PROTEOMES="/Users/dbuchan/Code/psipred_cache/get_proteomes/cache_proteomes_single_lines.fasta"
-BLAST_EXE="/Users/dbuchan/Downloads/ncbi-blast-2.2.31+/bin/psiblast"
-FINAL="./"
+FASTA_PROTEOMES="/home/dbuchan/psipred_cache/cache_proteomes_single_lines.fasta"
+BLAST_EXE="/home/dbuchan/ncbi-blast-2.2.31+-src/c++/ReleaseMT/bin/psiblast"
+FINAL="/home/dbuchan/psipred_cache/batch_1/"
 blastdb_name="test_db"
-blastdb_location="/Users/dbuchan/Downloads/"
+blastdb_location="/home/dbuchan/uniref/"
 blastdb="/$TMP/$blastdb_name.fasta"
-SGE_TASK_ID=1
+# SGE_TASK_ID=1
+
 
 #Check if we have a copy of the db and mv it if neccessary
 if [ -f "$blastdb" ]
