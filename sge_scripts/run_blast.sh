@@ -32,8 +32,13 @@ echo $CONTENTS >> $FILENAME
 #run blast
 echo "RUNNING A BLAST"
 /Users/dbuchan/Downloads/ncbi-blast-2.2.31+/bin/psiblast -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20
-
+FAILFLAG="./$SGE_TASK_ID.failure"
+if [ -f "$PSSM" ]
+then
+  mv $PSSM ./
+  mv $OUT ./
+  rm $FILENAME
+else
+  touch $FAILFLAG
+fi
 #delete our temp file
-mv $PSSM ./
-mv $OUT ./
-rm $FILENAME
