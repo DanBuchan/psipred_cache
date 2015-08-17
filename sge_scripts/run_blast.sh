@@ -1,9 +1,9 @@
 #!/bin/sh
 #$ -t 1-409314
+#$ -e /home/dbuchan/psipred_cache/error.txt
+#$ -o /home/dbuchan/psipred_cache//output.txt
 
-#
 # Test we have uniref90 available and if not copy it to /tmp
-#
 #
 # LOCAL CONFIG
 # This config for testing
@@ -60,6 +60,6 @@ then
   mv $OUT $FINAL
   rm $FILENAME
 else
-  touch $FAILFLAG
+  touch $FINAL/$FAILFLAG
 fi
 #delete our temp file
