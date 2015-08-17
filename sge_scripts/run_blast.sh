@@ -48,8 +48,7 @@ MATCH=$(echo $HEADER | perl -ne 'while(/>.+\|(.+?)\|.+\s/g){print "$1\n";}')
 FILENAME="/$TMP/$MATCH.fasta"
 OUT="/$TMP/$MATCH.bls"
 PSSM="/$TMP/$MATCH.pssm"
-printf="$HEADER\n$SEQ"
-echo $CONTENTS >> $FILENAME
+printf "$HEADER\n$SEQ" >> $FILENAME
 
 #run blast
 echo "RUNNING A BLAST"
