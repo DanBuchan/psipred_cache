@@ -1,8 +1,11 @@
-#!/bin/bash -l
+#!/bin/sh
+#$ -S /bin/sh
 #$ -t 1-409314
+#$ -l h_rt=2:0:0
+#$ -l tmem=2G -l h_vmem=2G
 #$ -e /home/dbuchan/psipred_cache/error.txt
 #$ -o /home/dbuchan/psipred_cache/output.txt
-#$ -S /bin/sh
+
 
 # Test we have uniref90 available and if not copy it to /tmp
 #
@@ -18,7 +21,7 @@
 # SGE_TASK_ID=1
 
 # This config for morecambe/sge
-TMP="tmp/psi_cache"
+TMP="/scratch0/dbuchan/psi_cache"
 FASTA_PROTEOMES="/home/dbuchan/psipred_cache/cache_proteomes_single_lines.fasta"
 BLAST_EXE="/home/dbuchan/ncbi-blast-2.2.31+-src/c++/ReleaseMT/bin/psiblast"
 FINAL="/home/dbuchan/psipred_cache/batch_1/"
