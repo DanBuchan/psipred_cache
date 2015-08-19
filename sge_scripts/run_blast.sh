@@ -2,7 +2,7 @@
 #$ -S /bin/sh
 #$ -t 1-409314
 #$ -l h_rt=2:0:0
-#$ -l tmem=2G -l h_vmem=2G
+#$ -l tmem=1.9G -l h_vmem=1.9G
 #$ -e /home/dbuchan/psipred_cache/error.txt
 #$ -o /home/dbuchan/psipred_cache/output.txt
 
@@ -37,7 +37,7 @@ then
   echo "Blast DB present"
 else
   echo "Copying blast db"
-  mkdir /$TMP
+  mkdir -p $TMP
   cp $blastdb_location/$blastdb_name.* /$TMP
   #I should check if the last files makes it
 fi
@@ -50,14 +50,14 @@ SEQ=$(awk "NR==$SEQ_LOC  {print;exit}" $FASTA_PROTEOMES)
 
 #write HEADER AND SEQ TO A /tmp/temp file
 MATCH=$(echo $HEADER | perl -ne 'while(/>.+\|(.+?)\|.+\s/g){print "$1\n";}')
-FILENAME="/$TMP/$MATCH.fasta"
-OUT="/$TMP/$MATCH.bls"
-PSSM="/$TMP/$MATCH.pssm"
+FILENAME="$TMP/$MATCH.fasta"
+OUT="$TMP/$MATCH.bls"
+PSSM="$TMP/$MATCH.pssm"
 printf "$HEADER\n$SEQ" >> $FILENAME
 
 #run blast
 echo "RUNNING A BLAST"
-$BLAST_EXE -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20
+$BLAST_EXE -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20 -outfmt "7 qseqid qlen qstart qend sseqid slen sstart send evalue bitscore score length pident qcovs"
 FAILFLAG="./$SGE_TASK_ID.failure"
 if [ -f "$PSSM" ]
 then
