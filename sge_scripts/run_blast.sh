@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash -l
 #$ -t 1-409314
 #$ -e /home/dbuchan/psipred_cache/error.txt
-#$ -o /home/dbuchan/psipred_cache//output.txt
+#$ -o /home/dbuchan/psipred_cache/output.txt
+#$ -S /bin/sh
 
 # Test we have uniref90 available and if not copy it to /tmp
 #
@@ -35,6 +36,7 @@ else
   echo "Copying blast db"
   mkdir /$TMP
   cp $blastdb_location/$blastdb_name.* /$TMP
+  #I should check if the last files makes it
 fi
 
 #Here we get the sequence
