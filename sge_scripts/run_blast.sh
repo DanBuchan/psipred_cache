@@ -6,6 +6,8 @@
 #$ -e /home/dbuchan/psipred_cache/error.txt
 #$ -o /home/dbuchan/psipred_cache/output.txt
 
+# for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; rm -rf /scratch0/dbuchan" ; done
+# once we're done we can use this to clean up
 
 # Test we have uniref90 available and if not copy it to /tmp
 #
@@ -19,6 +21,10 @@
 # blastdb_location="/Users/dbuchan/Downloads/"
 # blastdb="/$TMP/$blastdb_name.fasta"
 # SGE_TASK_ID=1
+while [ $TMP/lock ]
+do
+  sleep 5
+done
 
 # This config for morecambe/sge
 TMP="/scratch0/dbuchan/psi_cache"
@@ -38,7 +44,9 @@ then
 else
   echo "Copying blast db"
   mkdir -p $TMP
+  touch $TMP/lock
   cp $blastdb_location/$blastdb_name.* /$TMP
+  rm $TMP/lock
   #I should check if the last files makes it
 fi
 

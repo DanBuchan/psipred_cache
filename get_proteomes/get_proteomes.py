@@ -18,12 +18,12 @@ proteome_uri = "http://www.uniprot.org/uniprot/?" + \
                "force=no&include=true&format=fasta&" + \
                "query=proteome:"
 
-with open('/Users/dbuchan/Code/psipred_cache/hash_submission_lookup/'
+with open('/cs/research/bioinf/home1/green/dbuchan/Code/psipred_cache/hash_submission_lookup/'
           'common_organisms.csv') as infile:
     strings = csv.reader(infile, delimiter=',', quotechar='"')
     next(strings)
     for row in strings:
-        if float(row[10]) > 0.05:
+        if float(row[10]) >= 0.1:
             taxa_url = ''
             if row[0] == "11676":
                 taxa_url = HIV_query_uri+row[0]

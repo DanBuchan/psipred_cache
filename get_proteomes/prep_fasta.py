@@ -4,8 +4,7 @@ import re
 header = ""
 seq = ""
 i = 0
-with open('/Users/dbuchan/Code/psipred_cache/get_proteomes/'
-          'cache_proteomes.fasta') as infile:
+with open('/cs/research/bioinf/home1/green/dbuchan/Code/psipred_cache/get_proteomes/proteomes_greater_than_ten_percent.fasta') as infile:
     for line in infile:
         line = line.strip()
         if line.startswith(">"):
