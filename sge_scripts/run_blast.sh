@@ -5,7 +5,7 @@
 #$ -l tmem=1.9G -l h_vmem=1.9G
 #$ -e /home/dbuchan/psipred_cache/error/$TASK_ID.err
 #$ -o /home/dbuchan/psipred_cache/output/$TASK_ID.out
-#$ -l tscr=16G
+#$ -l tscr=32G
 
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; mkdir -p /scratch0/dbuchan/psi_cache; scp morecambe2:/home/dbuchan/psipred_cache/proteomes_greater_than_ten_percent_prepped.fasta /scratch0/dbuchan/psi_cache/" ; done
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; scp morecambe2:/home/dbuchan/uniref/uniref90.fasta.* /scratch0/dbuchan/psi_cache/" ; done
@@ -34,7 +34,6 @@ FASTA_PROTEOMES="/home/dbuchan/psipred_cache/cache_proteomes_single_lines.fasta"
 LOCAL_PROTEOMES="$TMP/cache_proteomes_single_lines.fasta"
 BLAST_EXE="/home/dbuchan/ncbi-blast-2.2.31+-src/c++/ReleaseMT/bin/psiblast"
 FINAL="/home/dbuchan/psipred_cache/batch_1/"
-FAILFLAG="./$SGE_TASK_ID.failure"
 blastdb_name="uniref90"
 blastdb_location="/home/dbuchan/uniref/"
 blastdb="/$TMP/$blastdb_name.fasta"
@@ -52,13 +51,13 @@ then
   echo "Blast DB present"
 else
   echo "Copying blast db"
-  touch $FINAL/$FAILFLAG
-  # mkdir -p $TMP
-  # touch $LOCK
-  # cp $FASTA_PROTEOMES /$TMP
-  # cp $blastdb_location/$blastdb_name.* /$TMP
-  # rm $LOCK
-  #I should check if the last files makes it
+  # touch $FINAL/$FAILFLAG
+  mkdir -p $TMP
+  touch $LOCK
+  cp $FASTA_PROTEOMES /$TMP
+  cp $blastdb_location/$blastdb_name.* /$TMP
+  rm $LOCK
+  # I should check if the last files makes it
 fi
 
 #Here we get the sequence
