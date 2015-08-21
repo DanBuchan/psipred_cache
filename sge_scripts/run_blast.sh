@@ -5,9 +5,11 @@
 #$ -l tmem=1.9G -l h_vmem=1.9G
 #$ -e /home/dbuchan/psipred_cache/error/$TASK_ID.err
 #$ -o /home/dbuchan/psipred_cache/output/$TASK_ID.out
+#$ -l tscr=16G
 
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; mkdir -p /scratch0/dbuchan/psi_cache; scp morecambe2:/home/dbuchan/psipred_cache/proteomes_greater_than_ten_percent_prepped.fasta /scratch0/dbuchan/psi_cache/" ; done
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; scp morecambe2:/home/dbuchan/uniref/uniref90.fasta.* /scratch0/dbuchan/psi_cache/" ; done
+# for i in `cat free_nodes.csv | cut -f 1 -d "  " `; do echo $i; done
 
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; rm -rf /scratch0/dbuchan" ; done
 # once we're done we can use this to clean up
@@ -32,9 +34,11 @@ FASTA_PROTEOMES="/home/dbuchan/psipred_cache/cache_proteomes_single_lines.fasta"
 LOCAL_PROTEOMES="$TMP/cache_proteomes_single_lines.fasta"
 BLAST_EXE="/home/dbuchan/ncbi-blast-2.2.31+-src/c++/ReleaseMT/bin/psiblast"
 FINAL="/home/dbuchan/psipred_cache/batch_1/"
+FAILFLAG="./$SGE_TASK_ID.failure"
 blastdb_name="uniref90"
 blastdb_location="/home/dbuchan/uniref/"
 blastdb="/$TMP/$blastdb_name.fasta"
+FAILFLAG="./$SGE_TASK_ID.failure"
 # SGE_TASK_ID=1
 
 while [ -f $LOCK ]
@@ -48,6 +52,7 @@ then
   echo "Blast DB present"
 else
   echo "Copying blast db"
+  touch $FINAL/$FAILFLAG
   # mkdir -p $TMP
   # touch $LOCK
   # cp $FASTA_PROTEOMES /$TMP
@@ -72,7 +77,6 @@ printf "$HEADER\n$SEQ" >> $FILENAME
 #run blast
 echo "RUNNING A BLAST"
 $BLAST_EXE -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20 -outfmt "7 qseqid qlen qstart qend sseqid slen sstart send evalue bitscore score length pident qcovs"
-FAILFLAG="./$SGE_TASK_ID.failure"
 if [ -f "$PSSM" ]
 then
   mv $PSSM $FINAL
