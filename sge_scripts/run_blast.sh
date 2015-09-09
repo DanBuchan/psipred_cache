@@ -82,6 +82,12 @@ PSSM="$TMP/$MATCH.pssm"
 # CHK="$TMP/$MATCH.chk"
 printf "$HEADER\n$SEQ" >> $FILENAME
 
+if [ -f "$PSSM" ]
+then
+  echo "$PSSM exists"
+  exit 0
+fi
+
 #run blast
 echo "RUNNING A BLAST"
 $BLAST_EXE -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20 -outfmt "7 qseqid qlen qstart qend sseqid slen sstart send evalue bitscore score length pident qcovs"
