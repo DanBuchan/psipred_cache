@@ -111,6 +111,9 @@ then
   rm $FILENAME
   exit 0
 else
+  rm $OUT
+  rm $PSSM
+  rm $FILENAME
   touch $FINAL/$FAILFLAG
   exit 0
 fi
