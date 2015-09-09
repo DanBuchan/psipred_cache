@@ -1,7 +1,7 @@
 #!/bin/sh
 #$ -S /bin/sh
 # 1-409314
-#$ -t 12623-75000
+#$ -t 11-75000
 #$ -l h_rt=2:0:0
 #$ -l tmem=1.9G -l h_vmem=1.9G
 #$ -e /cluster/project1/psi_cache/error/$TASK_ID.err
@@ -79,12 +79,15 @@ echo $MATCH
 FILENAME="$TMP/$MATCH.fasta"
 OUT="$TMP/$MATCH.bls"
 PSSM="$TMP/$MATCH.pssm"
+PSSMTEST="$FINALPSSM/$MATCH.pssm"
 # CHK="$TMP/$MATCH.chk"
 printf "$HEADER\n$SEQ" >> $FILENAME
 
-if [ -f "$PSSM" ]
+# if results are already present then skip it
+if [ -f "$PSSMTEST" ]
 then
-  echo "$PSSM exists"
+  echo "$PSSM already calculated"
+  rm $FILENAME
   exit 0
 fi
 
@@ -111,6 +114,10 @@ else
   touch $FINAL/$FAILFLAG
   exit 0
 fi
+
+rm $OUT
+rm $PSSM
+rm $FILENAME
 touch $FINAL/$FAILFLAG
 exit 1
 #delete our temp file
