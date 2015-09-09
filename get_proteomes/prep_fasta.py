@@ -19,3 +19,5 @@ with open('/cs/research/bioinf/home1/green/dbuchan/Code/psipred_cache/get_proteo
 
 print(header)
 print(seq)
+
+# 22279.out

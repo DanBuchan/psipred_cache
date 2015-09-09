@@ -1,11 +1,13 @@
 #!/bin/sh
 #$ -S /bin/sh
-#$ -t 1-409314
+# 1-409314
+#$ -t 12623-75000
 #$ -l h_rt=2:0:0
 #$ -l tmem=1.9G -l h_vmem=1.9G
-#$ -e /home/dbuchan/psipred_cache/error/$TASK_ID.err
-#$ -o /home/dbuchan/psipred_cache/output/$TASK_ID.out
-#$ -l tscr=16G
+#$ -e /cluster/project1/psi_cache/error/$TASK_ID.err
+#$ -o /cluster/project1/psi_cache/output/$TASK_ID.out
+#$ -l tscr=17G
+#$ -l scratch0free=17G
 
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; mkdir -p /scratch0/dbuchan/psi_cache; scp morecambe2:/home/dbuchan/psipred_cache/proteomes_greater_than_ten_percent_prepped.fasta /scratch0/dbuchan/psi_cache/" ; done
 # for i in `qhost | cut -f 1 -d " " ` ; do ssh  -oBatchMode=yes $i "echo $i; scp morecambe2:/home/dbuchan/uniref/uniref90.fasta.* /scratch0/dbuchan/psi_cache/" ; done
@@ -33,11 +35,15 @@ LOCK="$TMP/lock"
 FASTA_PROTEOMES="/home/dbuchan/psipred_cache/proteomes_greater_than_ten_percent_prepped.fasta"
 LOCAL_PROTEOMES="$TMP/proteomes_greater_than_ten_percent_prepped.fasta"
 BLAST_EXE="/home/dbuchan/ncbi-blast-2.2.31+-src/c++/ReleaseMT/bin/psiblast"
-CHKPARSE_EXE="/home/dbuchan//psipred_cache/chkparse"
-FINAL="/home/dbuchan/psipred_cache/batch_1/"
+# CHKPARSE_EXE="/home/dbuchan//psipred_cache/chkparse"
+FINAL="/cluster/project1/psi_cache/batch_1/"
+FINALPSSM="/cluster/project1/psi_cache/batch_1/pssm/"
+FINALBLS="/cluster/project1/psi_cache/batch_1/bls/"
+# FINALCHK="/cluster/project1/psi_cache/batch_1/chk/"
 blastdb_name="uniref90"
 blastdb_location="/home/dbuchan/uniref/"
 blastdb="/$TMP/$blastdb_name.fasta"
+blasttest="/$TMP/uniref90.fasta.11.psq"
 FAILFLAG="./$SGE_TASK_ID.failure"
 # SGE_TASK_ID=1
 
@@ -47,7 +53,7 @@ do
   sleep 10
 done
 #Check if we have a copy of the db and mv it if neccessary
-if [ -f "$blastdb" ]
+if [ -f "$blasttest" ]
 then
   echo "Blast DB present"
 else
@@ -69,23 +75,36 @@ SEQ=$(awk "NR==$SEQ_LOC  {print;exit}" $LOCAL_PROTEOMES)
 
 #write HEADER AND SEQ TO A /tmp/temp file
 MATCH=$(echo $HEADER | perl -ne 'while(/>.+\|(.+?)\|.+\s/g){print "$1\n";}')
+echo $MATCH
 FILENAME="$TMP/$MATCH.fasta"
 OUT="$TMP/$MATCH.bls"
 PSSM="$TMP/$MATCH.pssm"
-CHK="$TMP/$MATCH.chk"
+# CHK="$TMP/$MATCH.chk"
 printf "$HEADER\n$SEQ" >> $FILENAME
 
 #run blast
 echo "RUNNING A BLAST"
 $BLAST_EXE -query $FILENAME -out_pssm $PSSM -out $OUT -db $blastdb -num_iterations 20 -outfmt "7 qseqid qlen qstart qend sseqid slen sstart send evalue bitscore score length pident qcovs"
-$CHKPARSE_EXE $PSSM > $CHK
+echo "BLAST COMPLETE"
+echo "RUNNING CHK PARSE"
+# CHKPARSE_EXE $PSSM > $CHK
+echo "CHK PARSE COMPLETE"
+echo "LOOKING FOR FILES"
 if [ -f "$PSSM" ]
 then
-  mv $PSSM $FINAL
-  mv $OUT $FINAL
-  mv $CHK $FINAL
+  echo "MOVING FILES"
+  mv $PSSM $FINALPSSM
+  mv $OUT $FINALBLS
+  # mv $CHK $FINALCHK
+  # rm $CHK
+  rm $OUT
+  rm $PSSM
   rm $FILENAME
+  exit 0
 else
   touch $FINAL/$FAILFLAG
+  exit 0
 fi
+touch $FINAL/$FAILFLAG
+exit 1
 #delete our temp file
